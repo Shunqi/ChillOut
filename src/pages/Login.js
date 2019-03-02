@@ -7,61 +7,66 @@ import {
   Button,
   TouchableHighlight,
   Image,
-  Alert, 
+  Alert,
   Dimensions
 } from 'react-native';
 
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+
+import Home from "./Home";
+
 const win = Dimensions.get('window');
 
-export default class LoginView extends Component {
-
+class LoginScreen extends Component {
+  static navigationOptions =
+    {
+      title: 'Login',
+    };
   constructor(props) {
     super(props);
     state = {
-      email   : '',
+      email: '',
       password: '',
     }
-  }
-
-  onClickListener = (viewId) => {
-    Alert.alert("Wrong Password!!"+viewId);
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}/>
+        {/* <View style={styles.inputContainer}>
+          <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/message/ultraviolet/50/3498db' }} />
           <TextInput style={styles.inputs}
-              placeholder="Phone Number"
-              keyboardType="number-pad"
-              underlineColorAndroid='transparent'
-              onChangeText={(email) => this.setState({email})}/>
-        </View>
-        
-        <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db'}}/>
-          <TextInput style={styles.inputs}
-              placeholder="Password"
-              secureTextEntry={true}
-              underlineColorAndroid='transparent'
-              onChangeText={(password) => this.setState({password})}/>
+            placeholder="Phone Number"
+            keyboardType="number-pad"
+            underlineColorAndroid='transparent'
+            onChangeText={(email) => this.setState({ email })} />
         </View>
 
         <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}/>
+          <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
           <TextInput style={styles.inputs}
-              placeholder="Comfirm Password"
-              secureTextEntry={true}
-              underlineColorAndroid='transparent'
-              onChangeText={(email) => this.setState({email})}/>
+            placeholder="Password"
+            secureTextEntry={true}
+            underlineColorAndroid='transparent'
+            onChangeText={(password) => this.setState({ password })} />
         </View>
 
-        <TouchableHighlight style={[styles.buttonContainer]} onPress={() => this.onClickListener('login')}>
-          <Image style={styles.fbIcon} source={{uri: 'https://scontent.fagc2-1.fna.fbcdn.net/v/t39.2365-6/17639236_1785253958471956_282550797298827264_n.png?_nc_cat=105&_nc_ht=scontent.fagc2-1.fna&oh=c6c186289a3e22e17879c5bebca29639&oe=5CDB42EA'}} resizeMode="contain"/>
+        <View style={styles.inputContainer}>
+          <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/message/ultraviolet/50/3498db' }} />
+          <TextInput style={styles.inputs}
+            placeholder="Comfirm Password"
+            secureTextEntry={true}
+            underlineColorAndroid='transparent'
+            onChangeText={(email) => this.setState({ email })} />
+        </View> */}
+
+        <TouchableHighlight style={[styles.buttonContainer]}
+          onPress={() => this.props.navigation.navigate('Home')}>
+          <Image style={styles.fbIcon} source={{ uri: 'https://scontent.fagc2-1.fna.fbcdn.net/v/t39.2365-6/17639236_1785253958471956_282550797298827264_n.png?_nc_cat=105&_nc_ht=scontent.fagc2-1.fna&oh=c6c186289a3e22e17879c5bebca29639&oe=5CDB42EA' }} resizeMode="contain" />
         </TouchableHighlight>
 
-        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('sign-up')}>
+        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]}
+          onPress={() => this.props.navigation.navigate('Home')}>
           <Text style={styles.loginText}>Sign Up</Text>
         </TouchableHighlight>
       </View>
@@ -78,41 +83,41 @@ const styles = StyleSheet.create({
     width: win.width
   },
   inputContainer: {
-      borderBottomColor: '#F5FCFF',
-      backgroundColor: '#FFFFFF',
-      borderRadius:30,
-      borderBottomWidth: 1,
-      width:250,
-      height:45,
-      marginBottom:20,
-      flexDirection: 'row',
-      alignItems:'center'
+    borderBottomColor: '#F5FCFF',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 30,
+    borderBottomWidth: 1,
+    width: 250,
+    height: 45,
+    marginBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center'
   },
-  inputs:{
-      height:45,
-      marginLeft:16,
-      borderBottomColor: '#FFFFFF',
-      flex:1,
+  inputs: {
+    height: 45,
+    marginLeft: 16,
+    borderBottomColor: '#FFFFFF',
+    flex: 1,
   },
-  inputIcon:{
-    width:30,
-    height:30,
-    marginLeft:15,
+  inputIcon: {
+    width: 30,
+    height: 30,
+    marginLeft: 15,
     justifyContent: 'center'
   },
-  fbIcon:{
-    height:45,
-    width:250,
-    borderRadius:30,
+  fbIcon: {
+    height: 45,
+    width: 250,
+    borderRadius: 20,
   },
   buttonContainer: {
-    height:45,
+    height: 45,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:20,
-    width:250,
-    borderRadius:30,
+    marginBottom: 20,
+    width: 250,
+    borderRadius: 30,
   },
   loginButton: {
     backgroundColor: "red",
@@ -121,3 +126,15 @@ const styles = StyleSheet.create({
     color: 'white',
   }
 });
+
+
+const MainNavigator = createStackNavigator({
+  Login: LoginScreen,
+  Home: Home,
+},
+  {
+    initialRouteName: 'Login',
+    headerMode: "none"
+  });
+
+export default MainNavigator;

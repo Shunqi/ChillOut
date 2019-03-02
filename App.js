@@ -1,24 +1,6 @@
-import React, {Component} from 'react';
-import {Alert, StyleSheet, Button, Text, View, TextInput } from 'react-native';
-import LoginView from './src/pages/Login';
+import { createAppContainer } from 'react-navigation'; 
 
-import Feed from './src/pages/Feed';
+import Login from "./src/pages/Login";
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <LoginView />
-      </View>      
-    );
-  }
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default createAppContainer(Login);
