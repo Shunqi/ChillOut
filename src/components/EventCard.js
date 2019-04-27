@@ -4,7 +4,7 @@ import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TouchableHighlig
 import { createBottomTabNavigator, createAppContainer, createStackNavigator, StackNavigator } from 'react-navigation';
 import { ButtonGroup, Rating, Avatar, Icon } from 'react-native-elements';
 
-import EventDetail from "../pages/EventDetail";
+import EventDetail from "../screens/EventDetail";
 
 const win = Dimensions.get('window');
 const component1 = () => <Text>LIKE</Text>
@@ -28,7 +28,7 @@ export default class EventCard extends React.Component {
         const { selectedIndex } = this.state
         return (
             <TouchableHighlight>
-                {/* // onPress={() => this.props.navigation.navigate("EventDetail")}> */}
+                {/* onPress={() => this.props.navigation.navigate("EventDetail")}> */}
                 <View style={styles.eventCard}>
 
                     <View style={styles.eventCardHead}>

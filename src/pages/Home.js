@@ -9,7 +9,7 @@ import EventCard from "../components/EventCard";
 import NewEvent from "./NewEvent";
 import Profile from "./Profile";
 import Message from "./Message";
-import EventDetail from "./EventDetail";
+import EventDetail from "../screens/EventDetail";
 
 const win = Dimensions.get('window');
 const component1 = () => <Text>LIKE</Text>

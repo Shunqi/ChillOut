@@ -1,6 +1,3 @@
-import { createAppContainer } from 'react-navigation'; 
+import App from "./src/index";
 
-import Login from "./src/pages/Login";
-
-
-export default createAppContainer(Login);
+export default App;
