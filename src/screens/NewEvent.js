@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput } from 'react-native';
 
-import { ButtonGroup, Rating, Button } from 'react-native-elements';
+import { ButtonGroup, Rating, Button, Header } from 'react-native-elements';
 
 
 const win = Dimensions.get('window');
@@ -27,6 +27,7 @@ export default class NewEvent extends React.Component {
 
         return (
             <View style={{ paddingLeft: 10, paddingRight: 10 }}>
+                <View style={{ height: 20 }}></View>
                 <View style={{ alignItems: "center", paddingBottom: 10 }}>
                     <ButtonGroup
                         onPress={this.updateIndex}

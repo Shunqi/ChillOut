@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ScrollView, StyleSheet, Dimensions, Image, FlatList } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Dimensions, Image, FlatList, TouchableHighlight } from 'react-native';
 
 import { ButtonGroup, Rating, Avatar, ListItem, Icon, Header } from 'react-native-elements';
 
@@ -9,8 +9,8 @@ const win = Dimensions.get('window');
 
 export default class ProfileScreen extends React.Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             selectedIndex: 0
         }
@@ -97,11 +97,13 @@ export default class ProfileScreen extends React.Component {
                             },
                         ]}
                         renderItem={({ item }) => (
+                            <TouchableHighlight onPress={() => this.props.navigation.navigate("EventDetail")}>
                             <ListItem
                                 title={item.title}
                                 subtitle={item.date}
                                 style={{ borderBottomWidth: 1, borderBottomColor: "light grey" }}
                             />
+                            </TouchableHighlight>
                         )}
                         keyExtractor={(item, index) => index.toString()}
                     />

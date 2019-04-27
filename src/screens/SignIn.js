@@ -11,9 +11,6 @@ import {
   Dimensions
 } from 'react-native';
 
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-
-import Home from "./Home";
 
 const win = Dimensions.get('window');
 
@@ -33,40 +30,14 @@ class LoginScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/message/ultraviolet/50/3498db' }} />
-          <TextInput style={styles.inputs}
-            placeholder="Phone Number"
-            keyboardType="number-pad"
-            underlineColorAndroid='transparent'
-            onChangeText={(email) => this.setState({ email })} />
-        </View>
-
-        <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db' }} />
-          <TextInput style={styles.inputs}
-            placeholder="Password"
-            secureTextEntry={true}
-            underlineColorAndroid='transparent'
-            onChangeText={(password) => this.setState({ password })} />
-        </View>
-
-        <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{ uri: 'https://png.icons8.com/message/ultraviolet/50/3498db' }} />
-          <TextInput style={styles.inputs}
-            placeholder="Comfirm Password"
-            secureTextEntry={true}
-            underlineColorAndroid='transparent'
-            onChangeText={(email) => this.setState({ email })} />
-        </View> */}
 
         <TouchableHighlight style={[styles.buttonContainer]}
-          onPress={() => this.props.navigation.navigate('Home')}>
+          onPress={() => this.props.navigation.navigate('SignedIn')}>
           <Image style={styles.fbIcon} source={{ uri: 'https://scontent.fagc2-1.fna.fbcdn.net/v/t39.2365-6/17639236_1785253958471956_282550797298827264_n.png?_nc_cat=105&_nc_ht=scontent.fagc2-1.fna&oh=c6c186289a3e22e17879c5bebca29639&oe=5CDB42EA' }} resizeMode="contain" />
         </TouchableHighlight>
 
         <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]}
-          onPress={() => this.props.navigation.navigate('Home')}>
+          onPress={() => this.props.navigation.navigate('SignedIn')}>
           <Text style={styles.loginText}>Sign Up</Text>
         </TouchableHighlight>
       </View>
@@ -127,14 +98,4 @@ const styles = StyleSheet.create({
   }
 });
 
-
-const MainNavigator = createStackNavigator({
-  Login: LoginScreen,
-  Home: Home,
-},
-  {
-    initialRouteName: 'Login',
-    headerMode: "none"
-  });
-
-export default MainNavigator;
+export default LoginScreen;

@@ -9,7 +9,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 const win = Dimensions.get('window');
 
 
-class MessageScreen extends React.Component {
+class Message extends React.Component {
 
     constructor() {
         super()
@@ -83,16 +83,5 @@ const styles = StyleSheet.create({
     },
 })
 
-import MessageDetail from "./MessageDetail";
 
-const MessageNav = createStackNavigator({
-    Message: MessageScreen,
-    MessageDetail: MessageDetail,
-},
-    {
-        initialRouteName: 'Message',
-        headerMode: "none"
-    });
-
-
-export default MessageNav
+export default Message

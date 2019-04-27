@@ -1,20 +1,53 @@
 import React from 'react';
 import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TouchableHighlight } from 'react-native';
 
-import { createBottomTabNavigator, createAppContainer, createStackNavigator, StackNavigator } from 'react-navigation';
-import { ButtonGroup, Rating, Avatar, Icon } from 'react-native-elements';
-
-import EventDetail from "../pages/EventDetail";
+import SearchBar from "../components/SearchBar";
+// import EventCard from "../components/EventCard";
 
 const win = Dimensions.get('window');
+
+class HomeScreen extends React.Component {
+  static navigationOptions =
+    {
+      title: 'Home',
+    };
+
+  render() {
+    return (
+      <View style={{ backgroundColor: "white", flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ height: 20 }}></View>
+        <View style={{ width: win.width }}>
+          <SearchBar />
+        </View>
+        
+        <ScrollView>
+          <EventCard navigation={this.props.navigation}/>
+
+          <EventCard navigation={this.props.navigation}/>
+
+          <EventCard navigation={this.props.navigation}/>
+
+          <EventCard navigation={this.props.navigation}/>
+
+        </ScrollView>
+      </View>
+    );
+  }
+}
+
+
+
+import { ButtonGroup, Rating, Avatar, Icon } from 'react-native-elements';
+
+
 const component1 = () => <Text>LIKE</Text>
 const component2 = () => <Text>JOIN</Text>
 const buttons = ["LIKE", "JOIN"]
 
-export default class EventCard extends React.Component {
+export class EventCard extends React.Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             selectedIndex: 0
         }
@@ -27,8 +60,8 @@ export default class EventCard extends React.Component {
     render() {
         const { selectedIndex } = this.state
         return (
-            <TouchableHighlight>
-                {/* // onPress={() => this.props.navigation.navigate("EventDetail")}> */}
+            <TouchableHighlight
+                onPress={() => this.props.navigation.navigate("EventDetail")}>
                 <View style={styles.eventCard}>
 
                     <View style={styles.eventCardHead}>
@@ -99,20 +132,4 @@ const styles = StyleSheet.create({
 })
 
 
-
-// const EventNav = createStackNavigator(
-//     {
-//         Event: {screen: EventCard},
-//         EventDetail: { screen: EventDetail }
-//     },
-//     {
-//         initialRouteName: "Event"
-//     });
-
-// export default class test extends React.Component {
-//     render() {
-//         return (
-//             <EventNav />
-//         );
-//     }
-// }
+export default HomeScreen;
