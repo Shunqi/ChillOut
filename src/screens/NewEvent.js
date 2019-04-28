@@ -58,6 +58,7 @@ export default class NewEvent extends React.Component {
                     <Button
                         title="Submit"
                         buttonStyle={{ backgroundColor: "red" }}
+                        onPress={() => this.props.navigation.navigate("EventDetail")}
                     />
                 </View>
             </View>

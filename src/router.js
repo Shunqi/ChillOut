@@ -11,6 +11,7 @@ import Profile from "./screens/Profile"
 
 import EventDetail from "./screens/EventDetail"
 import MessageDetail from "./screens/MessageDetail"
+import FriendList from "./screens/FriendList"
 
 export const SignedOut = createStackNavigator(
     {
@@ -29,16 +30,16 @@ export const SignedOut = createStackNavigator(
 export const HomeScreen = createStackNavigator(
     {
         Home: { screen: Home },
-        EventDetail: { screen: EventDetail }
+        // EventDetail: { screen: EventDetail }
     },
     {
         headerMode: "none",
     }
 );
 
-export const NewEventScreen = createSwitchNavigator({
+export const NewEventScreen = createStackNavigator({
     NewEvent: { screen: NewEvent },
-    EventDetail: { screen: EventDetail }
+    // EventDetail: { screen: EventDetail }
 },
 {
     headerMode: "none",
@@ -46,7 +47,7 @@ export const NewEventScreen = createSwitchNavigator({
 
 export const MessageScreen = createStackNavigator({
     MessageList: { screen: Message },
-    MessageDetail: { screen: MessageDetail }
+    // MessageDetail: { screen: MessageDetail }
 },
 {
     headerMode: "none",
@@ -54,13 +55,13 @@ export const MessageScreen = createStackNavigator({
 
 export const ProfileScreen = createStackNavigator({
     Profile: { screen: Profile },
-    EventDetail: { screen: EventDetail }
+    // EventDetail: { screen: EventDetail }
 },
 {
     headerMode: "none",
 });
 
-export const SignedIn = createBottomTabNavigator({
+export const Main = createBottomTabNavigator({
     Home: { screen: HomeScreen },
     NewEvent: { screen: NewEventScreen },
     Message: { screen: MessageScreen },
@@ -90,6 +91,17 @@ export const SignedIn = createBottomTabNavigator({
         },
     }
 );
+
+export const SignedIn = createStackNavigator({
+    Main: { screen: Main },
+    EventDetail: { screen: EventDetail },
+    MessageDetail: { screen: MessageDetail },
+    FriendList: { screen: FriendList }
+},
+{
+    headerMode: "none",
+    initialRouteName: "Main"
+});
 
 export const createLoginNav = (signedIn) => {
     return createSwitchNavigator(

@@ -2,7 +2,8 @@ import React from 'react';
 import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TouchableHighlight } from 'react-native';
 
 import SearchBar from "../components/SearchBar";
-// import EventCard from "../components/EventCard";
+
+import { EventCardStyles } from "../style/style"
 
 const win = Dimensions.get('window');
 
@@ -62,9 +63,9 @@ export class EventCard extends React.Component {
         return (
             <TouchableHighlight
                 onPress={() => this.props.navigation.navigate("EventDetail")}>
-                <View style={styles.eventCard}>
+                <View style={EventCardStyles.eventCard}>
 
-                    <View style={styles.eventCardHead}>
+                    <View style={EventCardStyles.eventCardHead}>
                         <View style={{ width: win.width / 5, alignItems: "center" }}>
                             <Avatar rounded size="medium" source={{ uri: 'https://pixel.nymag.com/imgs/daily/vulture/2018/05/03/recaps/03-alita-battle-angel.w700.h700.jpg' }} />
                         </View>
@@ -82,7 +83,7 @@ export class EventCard extends React.Component {
                         </View>
                     </View>
 
-                    <View style={styles.eventCardBody}>
+                    <View style={EventCardStyles.eventCardBody}>
                         <View style={{ paddingLeft: 10, paddingTop: 10 }}>
                             <Text style={{ fontSize: 20 }}>Come Play Tennie Together!</Text>
                             <Text>01 / 15</Text>
@@ -98,7 +99,7 @@ export class EventCard extends React.Component {
                             buttons={buttons}
                             selectedButtonStyle={{ backgroundColor: "red" }}
                             selectedTextStyle={{ color: "white" }}
-                            containerStyle={styles.eventCardTail}
+                            containerStyle={EventCardStyles.eventCardTail}
                             type="solid"
                         />
                     </View>
@@ -107,29 +108,5 @@ export class EventCard extends React.Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    eventCard: {
-        width: win.width,
-        height: 250,
-        borderWidth: 0.5,
-        borderColor: "red"
-    },
-    eventCardBody: {
-        height: 145,
-        backgroundColor: "lightgrey",
-    },
-    eventCardHead: {
-        // flex:1,
-        paddingTop: 10,
-        flexDirection: 'row',
-        height: 80,
-    },
-    eventCardTail: {
-        paddingTop: 0,
-        height: 20,
-    }
-})
-
 
 export default HomeScreen;

@@ -59,55 +59,53 @@ export default class ProfileScreen extends React.Component {
                     selectedTextStyle={{ color: "black" }}
                 />
 
-                <View>
-                    <FlatList
-                        style={{ paddingLeft: 10, paddingRight: 10 }}
-                        data={[
-                            {
-                                title: 'Football Night',
-                                date: 'Feb 25, 2019'
-                            },
-                            {
-                                title: 'Tennes Night',
-                                date: 'Feb 24, 2019'
-                            },
-                            {
-                                title: 'Film',
-                                date: 'Feb 24, 2019'
-                            },
-                            {
-                                title: 'Board Game',
-                                date: 'Feb 23, 2019'
-                            },
-                            {
-                                title: 'KTV',
-                                date: 'Feb 23, 2019'
-                            },
-                            {
-                                title: 'Dinner',
-                                date: 'Feb 21, 2019'
-                            },
-                            {
-                                title: 'TV Show',
-                                date: 'Feb 21, 2019'
-                            },
-                            {
-                                title: 'Opera',
-                                date: 'Feb 20, 2019'
-                            },
-                        ]}
-                        renderItem={({ item }) => (
-                            <TouchableHighlight onPress={() => this.props.navigation.navigate("EventDetail")}>
+                <FlatList
+                    style={{ paddingLeft: 10, paddingRight: 10 }}
+                    data={[
+                        {
+                            title: 'Football Night',
+                            date: 'Feb 25, 2019'
+                        },
+                        {
+                            title: 'Tennes Night',
+                            date: 'Feb 24, 2019'
+                        },
+                        {
+                            title: 'Film',
+                            date: 'Feb 24, 2019'
+                        },
+                        {
+                            title: 'Board Game',
+                            date: 'Feb 23, 2019'
+                        },
+                        {
+                            title: 'KTV',
+                            date: 'Feb 23, 2019'
+                        },
+                        {
+                            title: 'Dinner',
+                            date: 'Feb 21, 2019'
+                        },
+                        {
+                            title: 'TV Show',
+                            date: 'Feb 21, 2019'
+                        },
+                        {
+                            title: 'Opera',
+                            date: 'Feb 20, 2019'
+                        },
+                    ]}
+                    renderItem={({ item }) => (
+                        <TouchableHighlight onPress={() => this.props.navigation.navigate("EventDetail")}>
                             <ListItem
                                 title={item.title}
                                 subtitle={item.date}
                                 style={{ borderBottomWidth: 1, borderBottomColor: "light grey" }}
                             />
-                            </TouchableHighlight>
-                        )}
-                        keyExtractor={(item, index) => index.toString()}
-                    />
-                </View>
+                        </TouchableHighlight>
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                />
 
             </View>
         );
@@ -116,7 +114,6 @@ export default class ProfileScreen extends React.Component {
 
 const styles = StyleSheet.create({
     profileHead: {
-        // flex:1,
         paddingTop: 10,
         flexDirection: 'row',
         height: 80,
