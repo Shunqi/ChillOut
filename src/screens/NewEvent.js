@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput, AsyncStorage } from 'react-native';
 
 import { ButtonGroup, Rating, Button, Header } from 'react-native-elements';
 
@@ -58,7 +58,13 @@ export default class NewEvent extends React.Component {
                     <Button
                         title="Submit"
                         buttonStyle={{ backgroundColor: "red" }}
-                        onPress={() => this.props.navigation.navigate("EventDetail")}
+                        onPress={async () => {
+                            let events = await AsyncStorage.getItem('events');
+                            events = JSON.parse(events);
+                            events.push(0);
+                            await AsyncStorage.setItem('events', JSON.stringify(events));
+                            this.props.navigation.navigate("EventDetail")
+                        }}
                     />
                 </View>
             </View>

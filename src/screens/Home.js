@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TouchableHighlight } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TouchableHighlight, AsyncStorage } from 'react-native';
 
 import SearchBar from "../components/SearchBar";
 
@@ -8,32 +8,63 @@ import { EventCardStyles } from "../style/style"
 const win = Dimensions.get('window');
 
 class HomeScreen extends React.Component {
-  static navigationOptions =
-    {
-      title: 'Home',
-    };
+    constructor(props) {
+        super(props)
+        // this._storeData()
+        this.state = { hasEvents: false }
 
-  render() {
-    return (
-      <View style={{ backgroundColor: "white", flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <View style={{ height: 20 }}></View>
-        <View style={{ width: win.width }}>
-          <SearchBar />
-        </View>
-        
-        <ScrollView>
-          <EventCard navigation={this.props.navigation}/>
+        const didFocusListener = this.props.navigation.addListener(
+            'didFocus',
+            () => {
+                this.createEventCards();
+            }
+          );
 
-          <EventCard navigation={this.props.navigation}/>
+    }
 
-          <EventCard navigation={this.props.navigation}/>
+    _storeData = async () => {
+        try {
+            events = []
+            await AsyncStorage.setItem('events', JSON.stringify(events));
+        } catch (error) {
+            // Error saving data
+        }
+    };   
 
-          <EventCard navigation={this.props.navigation}/>
+    createEventCards = async () => {
+        cards = []        
+        let events = await AsyncStorage.getItem('events');
+        events = JSON.parse(events)
+        for (let i = 0; i < events.length; i++) {
+            cards.push(<EventCard navigation={this.props.navigation} eventId={i} key={i} />)
+        }
+        if (cards.length > 0) {
+            this.setState({ events: cards, hasEvents: true })
+        } else {
+            this.setState({ events: cards, hasEvents: false })
+        }
+    }
 
-        </ScrollView>
-      </View>
-    );
-  }
+    render() {
+        let cards;
+        if (this.state.hasEvents) {
+            cards = this.state.events
+        } else {
+            cards = <Text>No events available now. Let's create a new one!</Text>
+        }
+        return (
+            <View style={{ backgroundColor: "white", flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ height: 20 }}></View>
+                <View style={{ width: win.width }}>
+                    <SearchBar />
+                </View>
+
+                <ScrollView>
+                    {cards}
+                </ScrollView>
+            </View>
+        );
+    }
 }
 
 

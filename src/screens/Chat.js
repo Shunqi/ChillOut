@@ -9,7 +9,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 const win = Dimensions.get('window');
 
 
-class Message extends React.Component {
+class Chat extends React.Component {
 
     constructor() {
         super()
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default Message
+export default Chat

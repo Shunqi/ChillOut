@@ -6,7 +6,7 @@ import SignIn from "./screens/SignIn"
 
 import Home from "./screens/Home"
 import NewEvent from "./screens/NewEvent"
-import Message from "./screens/Message"
+import Chat from "./screens/Chat"
 import Profile from "./screens/Profile"
 
 import EventDetail from "./screens/EventDetail"
@@ -46,7 +46,7 @@ export const NewEventScreen = createStackNavigator({
 });
 
 export const MessageScreen = createStackNavigator({
-    MessageList: { screen: Message },
+    MessageList: { screen: Chat },
     // MessageDetail: { screen: MessageDetail }
 },
 {
