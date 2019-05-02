@@ -82,48 +82,39 @@ class DetailCard extends React.Component {
   }
 
   componentDidMount() {
-    return fetch('https://facebook.github.io/react-native/movies.json')
-      .then((response) => response.json())
-      .then((responseJson) => {
+    this.setState({
+      isLoading: false,
+      data: this.props.data,
+      comment: [
+        {
+          profilePicPath: 'https://XXX.jpg',
+          name: 'Commentor 1',
+          comment: 'Comment1',
+        },
+        {
+          profilePicPath: 'https://XXX.jpg',
+          name: 'Commentor 2',
+          comment: 'Comment2',
+        },
+        {
+          profilePicPath: 'https://XXX.jpg',
+          name: 'Commentor 3',
+          comment: 'Comment3',
+        },
+        {
+          profilePicPath: 'https://XXX.jpg',
+          name: 'Commentor 4',
+          comment: 'Comment4',
+        },
+        {
+          profilePicPath: 'https://XXX.jpg',
+          name: 'Commentor 5',
+          comment: 'Comment5',
+        },
+      ],
+    }, function () {
 
-        this.setState({
-          isLoading: false,
-          data: this.props.data,
-          comment: [
-            {
-              profilePicPath: 'https://XXX.jpg',
-              name: 'Commentor 1',
-              comment: 'Comment1',
-            },
-            {
-              profilePicPath: 'https://XXX.jpg',
-              name: 'Commentor 2',
-              comment: 'Comment2',
-            },
-            {
-              profilePicPath: 'https://XXX.jpg',
-              name: 'Commentor 3',
-              comment: 'Comment3',
-            },
-            {
-              profilePicPath: 'https://XXX.jpg',
-              name: 'Commentor 4',
-              comment: 'Comment4',
-            },
-            {
-              profilePicPath: 'https://XXX.jpg',
-              name: 'Commentor 5',
-              comment: 'Comment5',
-            },
-          ],
-        }, function () {
-
-        });
-
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    });
   }
 
   render() {
@@ -214,7 +205,7 @@ class DetailCard extends React.Component {
               </View>
             </View>
           }
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
         />
 
 

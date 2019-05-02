@@ -33,10 +33,10 @@ export default class ProfileScreen extends React.Component {
                 />
                 <View style={styles.profileHead}>
                     <View style={{ width: win.width / 5, alignItems: "center", paddingTop: 10 }}>
-                        <Avatar rounded size="medium" source={{ uri: 'https://media.licdn.com/dms/image/C4D03AQFZSBlFYWXr0A/profile-displayphoto-shrink_200_200/0?e=1556755200&v=beta&t=ckCtVrpl7NimG6aFZhCjiAwOyn_mGboLtXWmf4UoE0c' }} />
+                        <Avatar rounded size="medium" source={{ uri: 'https://pixel.nymag.com/imgs/daily/vulture/2018/05/03/recaps/03-alita-battle-angel.w700.h700.jpg' }} />
                     </View>
                     <View style={{ width: win.width / 4, flexDirection: "column" }}>
-                        <Text style={{ fontSize: 25 }}>Ambie </Text>
+                        <Text style={{ fontSize: 25 }}>Alita </Text>
                         <Text>CMU MSIT Student</Text>
                     </View>
                     <View style={{ paddingLeft: 60, paddingBottom: 10 }}>
