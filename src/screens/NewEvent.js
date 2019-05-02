@@ -115,8 +115,10 @@ export default class NewEvent extends React.Component {
                                 );
                             } else {
                                 data = Object.assign({}, data, this.state);
+                                // update home screen
                                 events.unshift(data);
                                 await AsyncStorage.setItem('events', JSON.stringify(events));
+                                // propogate event detail page 
                                 this.props.navigation.navigate("EventDetail", {data: data});
                             }
                         }}

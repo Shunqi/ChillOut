@@ -23,7 +23,19 @@ export default class ProfileScreen extends React.Component {
 
     render() {
         const { selectedIndex } = this.state
-
+        data = {
+            curJoin: 1,
+            description: "",
+            distance: "300 m",
+            eventTitle: "f",
+            location: "c",
+            maxCapacity: "g",
+            minJoin: "5 minimum",
+            name: "Alita",
+            time: "g",
+            timeLeft: "30 min",
+            title: "CMU MSIT Student"
+          }
         return (
             <View style={{ paddingLeft: 10, paddingRight: 10, flex: 1 }}>
                 <Header
@@ -97,7 +109,8 @@ export default class ProfileScreen extends React.Component {
                         },
                     ]}
                     renderItem={({ item }) => (
-                        <TouchableHighlight onPress={() => this.props.navigation.navigate("EventDetail")}>
+                        
+                        <TouchableHighlight onPress={() => this.props.navigation.navigate("EventDetail", {data: data})}>
                             <ListItem
                                 title={item.title}
                                 subtitle={item.date}
