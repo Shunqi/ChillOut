@@ -99,7 +99,8 @@ export default class NewEvent extends React.Component {
                               }
                             if (this.state["eventTitle"] === "" 
                                 || this.state["location"] === "" 
-                                || this.state["time"] === "") {
+                                || this.state["time"] === ""
+                                || this.state["maxCapacity"] === "") {
                                 Alert.alert(
                                     'Please enter required information',
                                     '',
@@ -110,7 +111,7 @@ export default class NewEvent extends React.Component {
                                 );
                             } else {
                                 data = Object.assign({}, data, this.state)
-                                events.push(data);
+                                events.unshift(data);
                                 await AsyncStorage.setItem('events', JSON.stringify(events));
                                 this.props.navigation.navigate("EventDetail", {data: data});
                             }

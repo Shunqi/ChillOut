@@ -119,6 +119,7 @@ export class EventCard extends React.Component {
                     <View style={EventCardStyles.eventCardBody}>
                         <View style={{ paddingLeft: 10, paddingTop: 10 }}>
                             <Text style={{ fontSize: 20 }}>{}</Text>
+                            <Text>{data["eventTitle"]}</Text>
                             <Text>{data["curJoin"]} / {data["maxCapacity"]}</Text>
                             <Text>{data["time"]}</Text>
                             <Text>{data["location"]}</Text>
