@@ -25,7 +25,7 @@ export default class ProfileScreen extends React.Component {
         const { selectedIndex } = this.state
 
         return (
-            <View style={{ paddingLeft: 10, paddingRight: 10 }}>
+            <View style={{ paddingLeft: 10, paddingRight: 10, flex: 1 }}>
                 <Header
                     containerStyle={{ backgroundColor: "white" }}
                     centerComponent={{ text: 'My Profile', style: { color: 'black', fontSize: 20 } }}
@@ -59,6 +59,7 @@ export default class ProfileScreen extends React.Component {
                     selectedTextStyle={{ color: "black" }}
                 />
 
+            {/* <ScrollView> */}
                 <FlatList
                     style={{ paddingLeft: 10, paddingRight: 10 }}
                     data={[
@@ -106,6 +107,7 @@ export default class ProfileScreen extends React.Component {
                     )}
                     keyExtractor={(item, index) => index.toString()}
                 />
+                {/* </ScrollView> */}
 
             </View>
         );

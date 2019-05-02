@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput, AsyncStorage } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TextInput, AsyncStorage, Alert } from 'react-native';
 
 import { ButtonGroup, Rating, Button, Header } from 'react-native-elements';
 
@@ -12,7 +12,12 @@ export default class NewEvent extends React.Component {
     constructor() {
         super()
         this.state = {
-            selectedIndex: 1
+            selectedIndex: 1,
+            eventTitle: "",
+            location: "",
+            time: "",
+            maxCapacity: "",
+            description: ""
         }
         this.updateIndex = this.updateIndex.bind(this)
     }
@@ -40,30 +45,75 @@ export default class NewEvent extends React.Component {
                 </View>
 
                 <View>
+                    <Text style={styles.titleFont}>Title</Text>
+                    <TextInput 
+                        style={styles.contentFont} 
+                        placeholder="Enter title"
+                        onChangeText = {(text) => this.setState({eventTitle: text})}
+                    ></TextInput>
+
                     <Text style={styles.titleFont}>Location</Text>
-                    <TextInput style={styles.contentFont} placeholder="Enter location"></TextInput>
+                    <TextInput 
+                        style={styles.contentFont} 
+                        placeholder="Enter location"                    
+                        onChangeText = {(text) => this.setState({location: text})}
+                    ></TextInput>
 
                     <Text style={styles.titleFont}>Time</Text>
-                    <TextInput style={styles.contentFont} placeholder="Enter time"></TextInput>
+                    <TextInput 
+                        style={styles.contentFont} 
+                        placeholder="Enter time"
+                        onChangeText = {(text) => this.setState({time: text})}
+                    ></TextInput>
 
                     <Text style={styles.titleFont}>Maximum People</Text>
-                    <TextInput style={styles.contentFont} placeholder="Enter maximum people"></TextInput>
+                    <TextInput 
+                        style={styles.contentFont} 
+                        placeholder="Enter maximum people"                        
+                        onChangeText = {(text) => this.setState({maxCapacity: text})}
+                    ></TextInput>
 
                     <Text style={styles.titleFont}>Additional Information</Text>
-                    <TextInput style={styles.contentFont} placeholder="Optional"></TextInput>
+                    <TextInput 
+                        style={styles.contentFont} 
+                        placeholder="Optional"
+                        onChangeText = {(text) => this.setState({description: text})}
+                    ></TextInput>
 
                 </View>
 
-                <View style={{ height: win.height / 3, justifyContent: 'flex-end' }}>
+                <View style={{ height: win.height / 4, justifyContent: 'flex-end' }}>
                     <Button
                         title="Submit"
                         buttonStyle={{ backgroundColor: "red" }}
                         onPress={async () => {
                             let events = await AsyncStorage.getItem('events');
                             events = JSON.parse(events);
-                            events.push(0);
-                            await AsyncStorage.setItem('events', JSON.stringify(events));
-                            this.props.navigation.navigate("EventDetail")
+                            data = { 
+                                name: 'Alita',
+                                title: 'CMU MSIT Student',
+                                distance: '300 m',
+                                timeLeft: '30 min',
+                                curJoin: 1,
+                                minJoin: '5 minimum',
+                              }
+                            if (this.state["eventTitle"] === "" 
+                                || this.state["location"] === "" 
+                                || this.state["time"] === "") {
+                                Alert.alert(
+                                    'Please enter required information',
+                                    '',
+                                    [
+                                      {text: 'OK'}
+                                    ],
+                                    {cancelable: false},
+                                );
+                            } else {
+                                data = Object.assign({}, data, this.state)
+                                events.push(data);
+                                await AsyncStorage.setItem('events', JSON.stringify(events));
+                                this.props.navigation.navigate("EventDetail", {data: data});
+                            }
                         }}
                     />
                 </View>

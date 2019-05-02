@@ -36,7 +36,7 @@ class HomeScreen extends React.Component {
         let events = await AsyncStorage.getItem('events');
         events = JSON.parse(events)
         for (let i = 0; i < events.length; i++) {
-            cards.push(<EventCard navigation={this.props.navigation} eventId={i} key={i} />)
+            cards.push(<EventCard navigation={this.props.navigation} eventId={i} key={i} data={events[i]}/>)
         }
         if (cards.length > 0) {
             this.setState({ events: cards, hasEvents: true })
@@ -84,16 +84,18 @@ export class EventCard extends React.Component {
             selectedIndex: 0
         }
         this.updateIndex = this.updateIndex.bind(this)
+        // console.log(this.props)
     }
     updateIndex(selectedIndex) {
         this.setState({ selectedIndex })
     }
 
     render() {
-        const { selectedIndex } = this.state
+        const { selectedIndex } = this.state;
+        const data = this.props.data;
         return (
             <TouchableHighlight
-                onPress={() => this.props.navigation.navigate("EventDetail")}>
+                onPress={() => this.props.navigation.navigate("EventDetail", {data: data})}>
                 <View style={EventCardStyles.eventCard}>
 
                     <View style={EventCardStyles.eventCardHead}>
@@ -101,8 +103,8 @@ export class EventCard extends React.Component {
                             <Avatar rounded size="medium" source={{ uri: 'https://pixel.nymag.com/imgs/daily/vulture/2018/05/03/recaps/03-alita-battle-angel.w700.h700.jpg' }} />
                         </View>
                         <View style={{ width: win.width / 3, flexDirection: "column" }}>
-                            <Text style={{ fontSize: 25 }}> Alita </Text>
-                            <Text>CMU MSIT Student</Text>
+                            <Text style={{ fontSize: 25 }}> {data["name"]} </Text>
+                            <Text>{data["title"]}</Text>
                         </View>
                         <View style={{ paddingLeft: 60, paddingBottom: 10 }}>
                             <Rating
@@ -116,10 +118,10 @@ export class EventCard extends React.Component {
 
                     <View style={EventCardStyles.eventCardBody}>
                         <View style={{ paddingLeft: 10, paddingTop: 10 }}>
-                            <Text style={{ fontSize: 20 }}>Come Play Tennie Together!</Text>
-                            <Text>01 / 15</Text>
-                            <Text>3:00 PM, Tuesday, Feburary 26</Text>
-                            <Text>CMU Tennis court</Text>
+                            <Text style={{ fontSize: 20 }}>{}</Text>
+                            <Text>{data["curJoin"]} / {data["maxCapacity"]}</Text>
+                            <Text>{data["time"]}</Text>
+                            <Text>{data["location"]}</Text>
                         </View>
                     </View>
 
