@@ -88,8 +88,25 @@ export const styles = StyleSheet.create({
   eventDetailCardBody: {
     // flex: 1,
     flexDirection: "column",
+    width: win.width,
     // paddingTop: 30,
     backgroundColor: "lightgrey",
+  },
+  eventCommentCard: {
+    // flex: 1,
+    paddingTop: 20,
+    flexDirection: 'row',
+    // backgroundColor: "lightgrey",
+  },
+  btnCommentCardContainer: {
+    height: 30,
+    width: win.width,
+  },
+  btnCommentCardBackground: {
+    backgroundColor: 'white',
+  },
+  btnCommentCardSelectedBackground: {
+    backgroundColor: '#cf6a87',
   },
   eventRow: {
     paddingLeft: 10,
@@ -97,6 +114,10 @@ export const styles = StyleSheet.create({
     paddingTop: 5,
     flexDirection: "row",
     justifyContent:'space-between',
+  },
+  eventTitle: {
+    fontSize: 15,
+    fontWeight: 'bold',
   },
   eventText: {
     fontSize: 15,
