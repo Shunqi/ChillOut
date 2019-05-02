@@ -88,7 +88,11 @@ export default class NewEvent extends React.Component {
                         buttonStyle={{ backgroundColor: "red" }}
                         onPress={async () => {
                             let events = await AsyncStorage.getItem('events');
-                            events = JSON.parse(events);
+                            if (!events) {
+                                events = []
+                            } else {
+                                events = JSON.parse(events);
+                            }
                             data = { 
                                 name: 'Alita',
                                 title: 'CMU MSIT Student',
@@ -110,7 +114,7 @@ export default class NewEvent extends React.Component {
                                     {cancelable: false},
                                 );
                             } else {
-                                data = Object.assign({}, data, this.state)
+                                data = Object.assign({}, data, this.state);
                                 events.unshift(data);
                                 await AsyncStorage.setItem('events', JSON.stringify(events));
                                 this.props.navigation.navigate("EventDetail", {data: data});

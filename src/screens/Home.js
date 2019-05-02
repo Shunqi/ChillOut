@@ -35,13 +35,17 @@ class HomeScreen extends React.Component {
         cards = []        
         let events = await AsyncStorage.getItem('events');
         events = JSON.parse(events)
-        for (let i = 0; i < events.length; i++) {
-            cards.push(<EventCard navigation={this.props.navigation} eventId={i} key={i} data={events[i]}/>)
-        }
-        if (cards.length > 0) {
-            this.setState({ events: cards, hasEvents: true })
-        } else {
+        if (!events) {
             this.setState({ events: cards, hasEvents: false })
+        } else {
+            for (let i = 0; i < events.length; i++) {
+                cards.push(<EventCard navigation={this.props.navigation} eventId={i} key={i} data={events[i]}/>)
+            }
+            if (cards.length > 0) {
+                this.setState({ events: cards, hasEvents: true })
+            } else {
+                this.setState({ events: cards, hasEvents: false })
+            }
         }
     }
 
