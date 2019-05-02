@@ -1,32 +1,3 @@
-// import React from 'react';
-// import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TouchableHighlight } from 'react-native';
-// import { createBottomTabNavigator, createAppContainer, createStackNavigator, StackNavigator } from 'react-navigation';
-
-// export default class EventDetail extends React.Component {
-//     static navigationOptions =
-//     {
-//       title: 'Event Detail',
-//     };
-
-//     constructor(props) {
-//       super(props)
-//   }
-
-//     render() {
-//       const data = this.props.navigation.getParam("data");
-//       return (
-//         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//           <Text>Event Detail</Text>
-//           <Text>{data["name"]}</Text>
-//           <Text>{data["title"]}</Text>
-//           <Text>Event Detail</Text>
-//           <Text>Event Detail</Text>
-//           <Text>Event Detail</Text>
-//         </View>
-//       );
-//     }
-//   }
-
 import React from 'react';
 import { Text, View, Button, FlatList, ActivityIndicator, ScrollView, StyleSheet, Dimensions, Image, TouchableHighlight } from 'react-native';
 import { SafeAreaView, createBottomTabNavigator, createAppContainer, createStackNavigator, StackNavigator } from 'react-navigation';
