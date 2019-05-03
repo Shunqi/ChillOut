@@ -324,7 +324,6 @@ class CommentScreen extends React.Component {
           }
           centerComponent={{ text: this.props.navigation.getParam('eventTitle'), 
                             style: { color: 'black', fontSize: 20 } }}
-          rightComponent={{ icon: 'account-circle', color: 'red' }}
         />
 
         <TextInput style={styles.inputComment}
@@ -335,7 +334,8 @@ class CommentScreen extends React.Component {
         <View style={{ justifyContent: 'flex-end' }}>
           <Button 
             style={{ backgroundColor: 'red' }}
-            onPress={() => this.storeComment()} title='Reply'/>
+            onPress={() => this.storeComment()} 
+            title='Reply'/>
         </View>
       </View>
     );

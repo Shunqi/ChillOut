@@ -4,8 +4,10 @@ import { Text, View, ScrollView, StyleSheet, Dimensions, Image, TouchableHighlig
 import SearchBar from "../components/SearchBar";
 
 import { EventCardStyles } from "../style/style"
+import { styles } from '../style/styles';
 
 const win = Dimensions.get('window');
+const filters = ["friend", "date", "location", "max", "rating"];
 
 class HomeScreen extends React.Component {
     constructor(props) {
@@ -61,6 +63,18 @@ class HomeScreen extends React.Component {
                 <View style={{ height: 20 }}></View>
                 <View style={{ width: win.width }}>
                     <SearchBar />
+                </View>
+                <View style={{ width: win.width, alignItems: "center" }}>
+                    <ButtonGroup
+                        // onPress={this.updateIndex}
+                        // selectedIndex={selectedIndex}
+                        buttons={filters}
+                        selectedButtonStyle={{ backgroundColor: "red" }}
+                        selectedTextStyle={{ color: "white" }}
+                        containerStyle={styles.btnCommentCardContainer}
+                        buttonStyle={styles.btnCommentCardBackground}
+                        type="solid"
+                    />
                 </View>
 
                 <ScrollView>

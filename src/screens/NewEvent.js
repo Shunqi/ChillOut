@@ -66,10 +66,10 @@ export default class NewEvent extends React.Component {
                         onChangeText = {(text) => this.setState({time: text})}
                     ></TextInput>
 
-                    <Text style={styles.titleFont}>Maximum People</Text>
+                    <Text style={styles.titleFont}>Maximum Enrollment</Text>
                     <TextInput 
                         style={styles.contentFont} 
-                        placeholder="Enter maximum people"                        
+                        placeholder="Enter maximum enrollment"                        
                         onChangeText = {(text) => this.setState({maxCapacity: text})}
                     ></TextInput>
 
