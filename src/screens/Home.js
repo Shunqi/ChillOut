@@ -18,7 +18,7 @@ class HomeScreen extends React.Component {
             () => {
                 this.createEventCards();
             }
-          );
+        );
 
     }
 
@@ -85,7 +85,7 @@ export class EventCard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedIndex: 0
+            selectedIndex: 0,
         }
         this.updateIndex = this.updateIndex.bind(this)
         // console.log(this.props)
@@ -97,9 +97,11 @@ export class EventCard extends React.Component {
     render() {
         const { selectedIndex } = this.state;
         const data = this.props.data;
+        const eventId = this.props.eventId;
+
         return (
-            <TouchableHighlight
-                onPress={() => this.props.navigation.navigate("EventDetail", {data: data})}>
+            <TouchableHighlight underlayColor='#cf6a87'
+                onPress={() => this.props.navigation.navigate("EventDetail", {data: data, eventId: eventId})}>
                 <View style={EventCardStyles.eventCard}>
 
                     <View style={EventCardStyles.eventCardHead}>

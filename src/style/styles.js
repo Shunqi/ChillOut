@@ -27,11 +27,11 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   inputComment: {
-      fontSize: 60,
+      fontSize: 30,
       height: 45,
       marginLeft: 16,
       borderBottomColor: '#FFFFFF',
-      flex: 1,
+      width: win.width,
   },
   inputIcon: {
     width: 30,
