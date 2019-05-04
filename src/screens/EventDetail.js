@@ -59,13 +59,13 @@ class DetailCard extends React.Component {
 
   componentWillMount() {
     // this.getCommentList(this.props.eventId);
-    
+
     this.getCommentList(this.props.eventId)
       .then(() => {
         console.log("Finished get comment list: " + this.state.comment);
         // this.setState({ comment: comments });
       });
-    
+
   }
 
   componentDidMount() {
@@ -278,7 +278,7 @@ class CommentScreen extends React.Component {
     const index = this.props.navigation.getParam('eventId'); // .toString()
     console.log('index in CommentScreen' + index);
 
-    const username = 'test user'; 
+    const username = 'test user';
     const text = this.state.comment;
     let comments = [];
 
@@ -289,7 +289,7 @@ class CommentScreen extends React.Component {
       let strList = await AsyncStorage.getItem(COMMENT_KEY) || "{}";
       let commentList = JSON.parse(strList);
       console.log(commentList);
-      
+
       let events = await AsyncStorage.getItem('events');
       const size = Object.keys(JSON.parse(events)).length;
       const id = (size - parseInt(index) - 1).toString();
@@ -303,7 +303,7 @@ class CommentScreen extends React.Component {
       console.log("2: " + comments);
       commentList[id] = comments;
       console.log(commentList);
-      
+
       await AsyncStorage.setItem(COMMENT_KEY, JSON.stringify(commentList));
       /* */
     }
@@ -316,14 +316,16 @@ class CommentScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ paddingLeft: 10, paddingRight: 10, flexDirection: 'column'}}>
+      <View style={{ paddingLeft: 10, paddingRight: 10, flexDirection: 'column' }}>
         <Header
           containerStyle={{ backgroundColor: "white" }}
           leftComponent={
             <Icon name="arrow-back" onPress={() => this.props.navigation.goBack()} />
           }
-          centerComponent={{ text: this.props.navigation.getParam('eventTitle'), 
-                            style: { color: 'black', fontSize: 20 } }}
+          centerComponent={{
+            text: this.props.navigation.getParam('eventTitle'),
+            style: { color: 'black', fontSize: 20 }
+          }}
         />
 
         <TextInput style={styles.inputComment}
@@ -332,10 +334,10 @@ class CommentScreen extends React.Component {
           onChangeText={(comment) => this.setState({ comment })} />
 
         <View style={{ justifyContent: 'flex-end' }}>
-          <Button 
+          <Button
             style={{ backgroundColor: 'red' }}
-            onPress={() => this.storeComment()} 
-            title='Reply'/>
+            onPress={() => this.storeComment()}
+            title='Reply' />
         </View>
       </View>
     );
