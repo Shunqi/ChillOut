@@ -33,7 +33,8 @@ class Chat extends React.Component {
                     centerComponent={{ text: 'Message', style: { color: 'black', fontSize: 20 } }}
                     rightComponent={
                         <SocialIcon
-                            size={10}
+                            style={{ width: 41, height: 41 }}
+                            iconSize={20}
                             type='facebook'
                         />}
                 />
