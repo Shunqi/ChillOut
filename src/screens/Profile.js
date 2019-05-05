@@ -41,7 +41,7 @@ export default class ProfileScreen extends React.Component {
                 <Header
                     containerStyle={{ backgroundColor: "white" }}
                     centerComponent={{ text: 'My Profile', style: { color: 'black', fontSize: 20 } }}
-                    rightComponent={{ icon: 'settings', color: 'red' }}
+                    rightComponent={{ icon: 'settings', color: '#c44569' }}
                 />
                 <View style={styles.profileHead}>
                     <View style={{ width: win.width / 5, alignItems: "center", paddingTop: 10 }}>
@@ -56,7 +56,7 @@ export default class ProfileScreen extends React.Component {
                             type="custom"
                             showRating
                             imageSize={20}
-                            ratingColor='red'
+                            ratingColor='#c44569'
                         />
                     </View>
                 </View>
@@ -67,7 +67,7 @@ export default class ProfileScreen extends React.Component {
                     buttons={["My Event", "My Join", "My Like"]}
                     containerStyle={{ height: 50, borderColor: "white", borderWidth: 0 }}
                     buttonStyle={{ borderWidth: 0, borderColor: "white" }}
-                    selectedButtonStyle={{ backgroundColor: "white", borderBottomWidth: 5, borderBottomColor: "red" }}
+                    selectedButtonStyle={{ backgroundColor: "white", borderBottomWidth: 5, borderBottomColor: "#c44569" }}
                     selectedTextStyle={{ color: "black" }}
                 />
 

@@ -7,7 +7,7 @@ import { EventCardStyles } from "../style/style"
 import { styles } from '../style/styles';
 
 const win = Dimensions.get('window');
-const filters = ["friend", "date", "location", "max", "rating"];
+const filters = ["friend", "date", "location", "capacity", "rating"];
 
 class HomeScreen extends React.Component {
     constructor(props) {
@@ -119,7 +119,7 @@ export class EventCard extends React.Component {
                 <View style={EventCardStyles.eventCard}>
 
                     <View style={EventCardStyles.eventCardHead}>
-                        <View style={{ width: win.width / 5, alignItems: "center" }}>
+                        <View style={{ paddingTop: 5, width: win.width / 5, alignItems: "center" }}>
                             <Avatar rounded size="medium" source={{ uri: 'https://pixel.nymag.com/imgs/daily/vulture/2018/05/03/recaps/03-alita-battle-angel.w700.h700.jpg' }} />
                         </View>
                         <View style={{ width: win.width / 3, flexDirection: "column" }}>
@@ -131,13 +131,13 @@ export class EventCard extends React.Component {
                                 type="custom"
                                 showRating
                                 imageSize={20}
-                                ratingColor='red'
+                                ratingColor='#c44569'
                             />
                         </View>
                     </View>
 
                     <View style={EventCardStyles.eventCardBody}>
-                        <View style={{ paddingLeft: 10, paddingTop: 10 }}>
+                        <View style={{ paddingLeft: 10, paddingTop: 0 }}>
                             <Text style={{ fontSize: 20 }}>{}</Text>
                             <Text>{data["eventTitle"]}</Text>
                             <Text>{data["curJoin"]} / {data["maxCapacity"]}</Text>
@@ -146,14 +146,15 @@ export class EventCard extends React.Component {
                         </View>
                     </View>
 
-                    <View style={{ alignItems: "center" }}>
+                    <View style={{ width: win.width, alignItems: "center" }}>
                         <ButtonGroup
                             onPress={this.updateIndex}
                             selectedIndex={selectedIndex}
                             buttons={buttons}
-                            selectedButtonStyle={{ backgroundColor: "red" }}
+                            selectedButtonStyle={{ backgroundColor: "#c44569" }}
                             selectedTextStyle={{ color: "white" }}
-                            containerStyle={EventCardStyles.eventCardTail}
+                            containerStyle={styles.btnCommentCardContainer}
+                            buttonStyle={styles.btnCommentCardBackground}
                             type="solid"
                         />
                     </View>
