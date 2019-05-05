@@ -6,17 +6,17 @@ const win = Dimensions.get('window');
 export const EventCardStyles = StyleSheet.create({
     eventCard: {
         width: win.width,
-        height: 250,
-        borderWidth: 0.5,
-        borderColor: "red"
+        height: 260,
+        // borderWidth: 0.5,
+        // borderColor: "red"
     },
     eventCardBody: {
-        height: 145,
+        height: 115,
         backgroundColor: "lightgrey",
     },
     eventCardHead: {
         // flex:1,
-        paddingTop: 10,
+        paddingTop: 5,
         flexDirection: 'row',
         height: 80,
     },

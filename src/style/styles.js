@@ -40,9 +40,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   fbIcon: {
-    height: 45,
-    width: 250,
-    borderRadius: 20,
+    height: 35,
+    width: 230,
+    borderRadius: 8,
   },
   buttonContainer: {
     height: 45,

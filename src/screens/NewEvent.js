@@ -38,9 +38,9 @@ export default class NewEvent extends React.Component {
                         onPress={this.updateIndex}
                         selectedIndex={selectedIndex}
                         buttons={buttons}
-                        containerStyle={{ height: 40, borderRadius: 20, width: 200, opacity: 100, borderWidth: 1, borderColor: "red" }}
+                        containerStyle={{ height: 40, borderRadius: 20, width: 200, opacity: 100, borderWidth: 1, borderColor: "#c44569" }}
                         buttonStyle={{ height: 40 }}
-                        selectedButtonStyle={{ backgroundColor: "red" }}
+                        selectedButtonStyle={{ backgroundColor: "#c44569" }}
                     />
                 </View>
 
@@ -85,7 +85,7 @@ export default class NewEvent extends React.Component {
                 <View style={{ height: win.height / 4, justifyContent: 'flex-end' }}>
                     <Button
                         title="Submit"
-                        buttonStyle={{ backgroundColor: "red" }}
+                        buttonStyle={{ backgroundColor: "#c44569" }}
                         onPress={async () => {
                             let events = await AsyncStorage.getItem('events');
                             if (!events) {
@@ -132,7 +132,7 @@ export default class NewEvent extends React.Component {
 const styles = StyleSheet.create({
     titleFont: {
         fontSize: 25,
-        color: "red",
+        color: "#c44569",
     },
     contentFont: {
         fontSize: 20,
