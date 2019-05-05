@@ -188,7 +188,7 @@ class DetailCard extends React.Component {
               type="custom"
               showRating
               imageSize={20}
-              ratingColor='red'
+              ratingColor='#c44569'
             />
           </View>
         </View>
@@ -230,7 +230,7 @@ class DetailCard extends React.Component {
             onPress={this.updateIndex}
             selectedIndex={selectedIndex}
             buttons={buttons}
-            selectedButtonStyle={{ backgroundColor: "red" }}
+            selectedButtonStyle={{ backgroundColor: "#c44569" }}
             selectedTextStyle={{ color: "white" }}
             containerStyle={styles.btnCommentCardContainer}
             buttonStyle={styles.btnCommentCardBackground}

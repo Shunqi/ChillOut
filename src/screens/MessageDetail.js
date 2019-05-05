@@ -32,7 +32,7 @@ export default class MessageDetail extends React.Component {
                         <Icon name="arrow-back" onPress={() => this.props.navigation.goBack()} />
                     }
                     centerComponent={{ text: 'Amy Farha', style: { color: 'black', fontSize: 20 } }}
-                    rightComponent={{ icon: 'account-circle', color: 'red' }}
+                    rightComponent={{ icon: 'account-circle', color: '#c44569' }}
                 />
 
                 <TextInput style={styles.inputs}

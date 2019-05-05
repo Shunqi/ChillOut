@@ -54,7 +54,7 @@ export const styles = StyleSheet.create({
     borderRadius: 30,
   },
   loginButton: {
-    backgroundColor: "red",
+    backgroundColor: "#c44569",
   },
   loginText: {
     color: 'white',
@@ -62,8 +62,8 @@ export const styles = StyleSheet.create({
   eventCard: {
     width: win.width,
     height: 250,
-    borderWidth: 0.5,
-    borderColor: "red"
+    // borderWidth: 0.5,
+    // borderColor: "red"
   },
   eventCardBody: {
     height: 145,
@@ -124,6 +124,6 @@ export const styles = StyleSheet.create({
   },
   eventText2: {
     fontSize: 15,
-    color: '#FF3333',
+    color: '#c44569',
   },
 });
